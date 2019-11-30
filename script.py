@@ -65,5 +65,7 @@ if __name__ == '__main__':
     result2.groupby("label").count().sort("count",ascending=False).show(5)
 
     # pagerank
-    PRank = g.pageRank(resetProbability=0.15, tol=0.01)
-    PRank.vertices.select("id", "pagerank").sort("pagerank",ascending=False).show()
+    PRank_small = g_small.pageRank(resetProbability=0.15, tol=0.01)
+    PRank_small.vertices.select("id", "pagerank").sort("pagerank",ascending=False).show()
+    PRank_large = g_large.pageRank(resetProbability=0.15, tol=0.01)
+    PRank_large.vertices.select("id", "pagerank").sort("pagerank",ascending=False).show()
